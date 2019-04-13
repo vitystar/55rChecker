@@ -24,14 +24,14 @@ namespace _55rCheckerWF
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtEmail.Text) || string.IsNullOrWhiteSpace(txtExpire.Text) || string.IsNullOrWhiteSpace(txtKey.Text) || string.IsNullOrWhiteSpace(txtUid.Text))
+            if (string.IsNullOrWhiteSpace(txtEmail.Text) || string.IsNullOrWhiteSpace(txtExpire.Text) || string.IsNullOrWhiteSpace(txtKey.Text))
             {
                 MessageBox.Show("cookie信息不完整");
                 return;
             }
             else
             {
-                Cookie = new CookieMsg() { email = txtEmail.Text.Trim(), key = txtKey.Text.Trim(), uid = txtUid.Text.Trim(), expire_in = txtExpire.Text.Trim() };
+                Cookie = new CookieMsg() { email = txtEmail.Text.Trim(), key = txtKey.Text.Trim(), expire_in = txtExpire.Text.Trim() };
                 FileHelper.SaveObject(Cookie, cookieFileName);
                 ShowBar();
             }
@@ -95,6 +95,7 @@ namespace _55rCheckerWF
             e.Cancel = true; //不退出程序
             this.WindowState = FormWindowState.Minimized; //最小化
             this.ShowInTaskbar = false; //在任务栏中不显示窗体
+            this.notifyIcon1.Icon = ImageHelper.MakeIcon(0);
             this.notifyIcon1.Visible = true; //托盘图标可见
         }
 
@@ -107,9 +108,17 @@ namespace _55rCheckerWF
 
         private void Refresh(Action errorHandle)
         {
+            int flag = 0;
             string html = "failed";
             while (html == "failed")
+            {
                 html = RequsetHelper.GetHtml(Cookie.email, Cookie.key, Cookie.uid, Cookie.expire_in);
+                if(flag > 5)
+                {
+                    MessageBox.Show("连接超时");
+                    return;
+                }
+            }
             if (!html.Contains("总流量"))
             {
                 errorHandle();

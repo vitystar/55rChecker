@@ -36,9 +36,7 @@
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtKey = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtUid = new System.Windows.Forms.TextBox();
             this.txtExpire = new System.Windows.Forms.TextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -94,14 +92,14 @@
             // 
             // txtKey
             // 
-            this.txtKey.Location = new System.Drawing.Point(106, 74);
+            this.txtKey.Location = new System.Drawing.Point(106, 71);
             this.txtKey.Name = "txtKey";
             this.txtKey.Size = new System.Drawing.Size(100, 21);
             this.txtKey.TabIndex = 4;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(76, 184);
+            this.button1.Location = new System.Drawing.Point(76, 148);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(87, 23);
             this.button1.TabIndex = 5;
@@ -109,34 +107,18 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 108);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(23, 12);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "uid";
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 141);
+            this.label5.Location = new System.Drawing.Point(12, 103);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(59, 12);
             this.label5.TabIndex = 7;
             this.label5.Text = "expire_in";
             // 
-            // txtUid
-            // 
-            this.txtUid.Location = new System.Drawing.Point(106, 108);
-            this.txtUid.Name = "txtUid";
-            this.txtUid.Size = new System.Drawing.Size(100, 21);
-            this.txtUid.TabIndex = 8;
-            // 
             // txtExpire
             // 
-            this.txtExpire.Location = new System.Drawing.Point(106, 141);
+            this.txtExpire.Location = new System.Drawing.Point(106, 103);
             this.txtExpire.Name = "txtExpire";
             this.txtExpire.Size = new System.Drawing.Size(100, 21);
             this.txtExpire.TabIndex = 9;
@@ -212,11 +194,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(248, 223);
+            this.ClientSize = new System.Drawing.Size(248, 188);
             this.Controls.Add(this.txtExpire);
-            this.Controls.Add(this.txtUid);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.txtKey);
             this.Controls.Add(this.txtEmail);
@@ -243,9 +223,7 @@
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtKey;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtUid;
         private System.Windows.Forms.TextBox txtExpire;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
