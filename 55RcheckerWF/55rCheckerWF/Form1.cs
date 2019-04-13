@@ -31,7 +31,7 @@ namespace _55rCheckerWF
             }
             else
             {
-                Cookie = new CookieMsg() { email = txtEmail.Text.Trim(), key = txtKey.Text.Trim(), expire_in = txtExpire.Text.Trim() };
+                Cookie = new CookieMsg() { email = txtEmail.Text.Trim(), key = txtKey.Text.Trim(), uid = txtUid.Text.Trim(), expire_in = txtExpire.Text.Trim() };
                 FileHelper.SaveObject(Cookie, cookieFileName);
                 ShowBar();
             }
@@ -41,7 +41,7 @@ namespace _55rCheckerWF
         {
             this.Hide();
         }
-               
+
         private void Form1_Shown(object sender, EventArgs e)
         {
             if (FileHelper.FileExits(cookieFileName))
@@ -113,7 +113,7 @@ namespace _55rCheckerWF
             while (html == "failed")
             {
                 html = RequsetHelper.GetHtml(Cookie.email, Cookie.key, Cookie.uid, Cookie.expire_in);
-                if(flag > 5)
+                if (flag > 5)
                 {
                     MessageBox.Show("连接超时");
                     return;
@@ -124,7 +124,7 @@ namespace _55rCheckerWF
                 errorHandle();
                 return;
             }
-            message = TextHelper.GetMessage(html,out double percent);
+            message = TextHelper.GetMessage(html, out double percent);
             notifyIcon1.Icon = ImageHelper.MakeIcon(percent);
             notifyIcon1.Text = String.Format("用户名:{0}\r\n用户等级:{1}\r\n总流量:{2}\r\n已用流量:{3}\r\n剩余流量:{4}", message.Username, message.Level, message.All, message.Used, message.Surplus);
             this.Visible = false;
